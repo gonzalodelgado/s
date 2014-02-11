@@ -3,7 +3,7 @@ s ()    # Starts or restores named screens
     if [ -n "$1" ]; then
         VIRTUALENV=$1
         if [[ -n $(screen -ls|egrep "^\s+[1-9]+\.$VIRTUALENV") ]]; then
-            screen -r $VIRTUALENV
+            screen -x $VIRTUALENV
         else
             shift   # Drops $1 from args
             screen -S $VIRTUALENV -t $VIRTUALENV -U ${@}
