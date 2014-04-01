@@ -21,7 +21,7 @@ if (( $+commands[$virtualenvwrapper] )); then
     if [ -n "$STY" ]; then 
         SESSION_NAME=$(echo $STY | cut -f 2 -d ".")
         # FIXME: This breaks if virtualenvwrapper isn't loaded yet
-        if [ $(workon | grep "$SESSION_NAME") ]; then
+        if [ $(workon | grep "^${SESSION_NAME}$") ]; then
             workon $SESSION_NAME
         fi
     fi
